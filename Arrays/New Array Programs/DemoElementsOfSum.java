@@ -1,4 +1,4 @@
-class DemoRandomElement{
+class DemoElementsOfSum{
 public static void main(String [] args){
 int Array [] = {2, 13, 5, 1, 6};
 int Target = 11;
