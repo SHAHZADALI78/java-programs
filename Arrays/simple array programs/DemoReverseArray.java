@@ -7,9 +7,9 @@ num [1] = 2;
 num [2] = 3;
 num [3] = 4;
 num [4] = 5;
-for(int index = 0; index<num.length; index++){
-System.out.println(num[index]);}
-System.out.println("Reverse numbers: ");
+//for(int index = 0; index<num.length; index++){
+//System.out.println(num[index]);}
+//System.out.println("Reverse numbers: ");
 for(int index = 4; index>=0; index--){
 System.out.println(num[index]);
 

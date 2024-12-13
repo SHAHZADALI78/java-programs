@@ -1,12 +1,13 @@
 class DemoEqualArrays{
 public static void main(String [] args){
 int myArray1 [] = {1, 2, 3, 4, 5};
-int myArray2 [] = {1, 2, 3, 4, 6, 7};
+int myArray2 [] = {1, 2, 3, 4, 5};
 boolean found = false;
 for(int i = 0; i<myArray1.length; i++){
 for(int j = 0; j<myArray2.length; j++){
-if(myArray1[i] == myArray2[j]){
+if(myArray1 == myArray2){
 found = true;
+break;
 }
 }
 }
