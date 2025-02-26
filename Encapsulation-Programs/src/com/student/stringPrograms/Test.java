@@ -1,4 +1,4 @@
-package com.student.string;
+package com.student.stringPrograms;
 
 public class Test {
     public static void main(String[] args) {
