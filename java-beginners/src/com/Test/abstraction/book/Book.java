@@ -22,9 +22,11 @@ public abstract class Book {
 
     public abstract void pages();
 
-    public void show(){
-        System.out.println("Name: " + name);
-        System.out.println("Author: " + author);
+    public void show() {
+
+    }
+
+    public void menuMethod() {
     }
 }
 
