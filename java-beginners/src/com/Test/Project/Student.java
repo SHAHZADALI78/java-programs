@@ -36,27 +36,8 @@ public class Student {
         this.studentRollNumber = studentRollNumber;
     }
 
-    /*public void showAllStudents() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println(" Enter Students Details ");
-
-        System.out.print("Enter Student Name: ");
-        String studentName = sc.nextLine();
-
-        System.out.print("Enter Student ID: ");
-        String studentIdd = sc.nextLine();
-
-        Student student = new Student(studentName, studentId);
-        studentList.add(student);
-
-        System.out.println("Students Registered:");
-        for (int i = 0; i < studentList.size(); i++) {
-            System.out.println((i + 1) + ". " + studentList.get(i));
-        }
-    }*/
-
     public void showStudentDetails() {
-        System.out.println(studentName + "     " + studentId + "     " + studentRollNumber);
+        System.out.println(studentName + "          " + studentId + "           " + studentRollNumber);
     }
 
 
