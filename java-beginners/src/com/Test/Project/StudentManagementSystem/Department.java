@@ -10,8 +10,8 @@ public class Department {
             this.code = code;
         }
 
-        /*void displayInfo() {
+        void displayInfo() {
             System.out.println("Department Name: " + name);
             System.out.println("Department Code: " + code);
-        }*/
+        }
     }

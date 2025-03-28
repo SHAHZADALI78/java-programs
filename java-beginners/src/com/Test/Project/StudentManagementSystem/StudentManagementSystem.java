@@ -1,25 +1,24 @@
 package com.Test.Project.StudentManagementSystem;
 import java.util.*;
-import java.util.Scanner;
 
 class StudentManagementSystem {
-    private ArrayList<Department> departments;
-    private ArrayList<Student> students;
+    ArrayList<Department> departments;
+    ArrayList<Student> students;
+
+    private Scanner sc = new Scanner(System.in);
 
     public StudentManagementSystem() {
         departments = new ArrayList<>();
         students = new ArrayList<>();
     }
 
-    // Department Management Methods
     public void addDepartment() {
-        Scanner sc = new Scanner(System.in);
+        sc.nextLine();
         System.out.print("Enter department name: ");
         String name = sc.nextLine();
         System.out.print("Enter department code: ");
         String code = sc.nextLine();
 
-        // Check if department code already exists
         for (Department dept : departments) {
             if (dept.code.equals(code)) {
                 System.out.println("Department code " + code + " already exists.");
@@ -29,10 +28,10 @@ class StudentManagementSystem {
 
         departments.add(new Department(name, code));
         System.out.println("Department added successfully.");
+        System.out.println(" ");
     }
 
     public void updateDepartment() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Enter department code you want to update: ");
         String code = sc.nextLine();
 
@@ -54,7 +53,6 @@ class StudentManagementSystem {
         System.out.print("Enter new code: ");
         String newCode = sc.nextLine();
 
-        // Check if new code already exists
         for (Department dept : departments) {
             if (dept.code.equals(newCode)) {
                 System.out.println("Department code " + newCode + " already exists.");
@@ -68,7 +66,6 @@ class StudentManagementSystem {
     }
 
     public void deleteDepartment() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Enter department code to delete: ");
         String code = sc.nextLine();
 
@@ -90,7 +87,6 @@ class StudentManagementSystem {
     }
 
     public void getDepartment() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Enter department code to get: ");
         String code = sc.nextLine();
 
@@ -119,23 +115,20 @@ class StudentManagementSystem {
         }
     }
 
-    // Student Management Methods
     public void addStudent() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter student id: ");
+        System.out.print("Enter student ID: ");
         int id = sc.nextInt();
         sc.nextLine(); // Consume newline
         System.out.print("Enter student name: ");
         String name = sc.nextLine();
-        System.out.print("Enter roll number: ");
-        String rollNumber = sc.nextLine();
+        System.out.print("Enter student roll number: ");
+        String rollNo = sc.nextLine();
         System.out.print("Enter department code: ");
-        String deptCode = sc.nextLine();
+        String departmentCode = sc.nextLine();
 
-        // Check if department exists
         boolean deptExists = false;
         for (Department dept : departments) {
-            if (dept.code.equals(deptCode)) {
+            if (dept.code.equals(departmentCode)) {
                 deptExists = true;
                 break;
             }
@@ -146,13 +139,12 @@ class StudentManagementSystem {
             return;
         }
 
-        students.add(new Student(id, name, rollNumber, deptCode));
+        students.add(new Student(id, name, rollNo, departmentCode));
         System.out.println("Student added successfully.");
     }
 
     public void updateStudent() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter student id to update: ");
+        System.out.print("Enter student ID to update: ");
         int id = sc.nextInt();
         sc.nextLine(); // Consume newline
 
@@ -176,7 +168,6 @@ class StudentManagementSystem {
         System.out.print("Enter new department code: ");
         String newDeptCode = sc.nextLine();
 
-        // Check if new department exists
         boolean deptExists = false;
         for (Department dept : departments) {
             if (dept.code.equals(newDeptCode)) {
@@ -197,8 +188,7 @@ class StudentManagementSystem {
     }
 
     public void deleteStudent() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter student id to delete: ");
+        System.out.print("Enter student ID to delete: ");
         int id = sc.nextInt();
 
         Student studentToDelete = null;
@@ -219,8 +209,7 @@ class StudentManagementSystem {
     }
 
     public void getStudent() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter student id to get: ");
+        System.out.print("Enter student ID to get: ");
         int id = sc.nextInt();
 
         Student student = null;
@@ -248,10 +237,7 @@ class StudentManagementSystem {
         }
     }
 
-    // Method to handle all menu logic
     public void menuMethod() {
-        Scanner sc = new Scanner(System.in);
-
         while (true) {
             System.out.println("\n1- Student Management");
             System.out.println("2- Department Management");
@@ -261,11 +247,11 @@ class StudentManagementSystem {
 
             switch (choice) {
                 case 1:
-                    handleStudentManagement();
+                    StudentManagement();
                     break;
 
                 case 2:
-                    handleDepartmentManagement();
+                    DepartmentManagement();
                     break;
 
                 case 3:
@@ -278,9 +264,7 @@ class StudentManagementSystem {
         }
     }
 
-    private void handleStudentManagement() {
-        Scanner sc = new Scanner(System.in);
-
+    private void StudentManagement() {
         while (true) {
             System.out.println("\n1- Add Student");
             System.out.println("2- Update Student");
@@ -324,9 +308,7 @@ class StudentManagementSystem {
         }
     }
 
-    private void handleDepartmentManagement() {
-        Scanner sc = new Scanner(System.in);
-
+    private void DepartmentManagement() {
         while (true) {
             System.out.println("\n1- Add Department");
             System.out.println("2- Update Department");
@@ -370,3 +352,4 @@ class StudentManagementSystem {
         }
     }
 }
+

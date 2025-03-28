@@ -15,10 +15,10 @@ public class Student {
     }
 
 
-    /*void displayInfo() {
+    void displayInfo() {
         System.out.println("Student ID: " + id);
         System.out.println("Student Name: " + name);
         System.out.println("Roll Number: " + rollNo);
         System.out.println("Department: " + departmentCode);
-    }*/
+    }
 }
