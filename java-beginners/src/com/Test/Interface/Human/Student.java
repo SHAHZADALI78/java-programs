@@ -1,6 +1,8 @@
 package com.Test.Interface.Human;
 
 public class Student implements Human{
+    public System System;
+
     @Override
     public void talk() {
         System.out.println("Human talk");

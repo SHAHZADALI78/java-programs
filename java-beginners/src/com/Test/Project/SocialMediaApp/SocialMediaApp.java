@@ -13,13 +13,13 @@ public class SocialMediaApp {
             System.out.println("1- Create Account");
             System.out.println("2- Login");
             System.out.println("3- Exit");
-            System.out.println("    Enter Your Choice     ");
+            System.out.print("   Enter Your Choice:  ");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1 -> createAccount();
                 case 2 -> login();
                 case 3 ->{
-                    System.out.println("Exiting program...");
+                    System.out.println("Exit Program!");
                     return;
                 }
             }
@@ -57,7 +57,7 @@ public class SocialMediaApp {
                 return;
             }
         }
-        System.out.println("Bad credentials. Please try again.");
+        System.out.println("UserName Or Password Is Incorrect.");
     }
 
     static void userMenu(User user) {
@@ -71,7 +71,7 @@ public class SocialMediaApp {
             System.out.println("6- Like a Post");
             System.out.println("7- Show All Feed");
             System.out.println("8- Logout");
-            System.out.println(" Enter The Method You Want To Perform: ");
+            System.out.print(" Enter The Method You Want To Perform:  ");
 
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
