@@ -6,6 +6,9 @@ public class Student {
         private int age;
         private String university;
 
+    public Student(int i, String adil, String khi) {
+    }
+
 
     public String getName() {
         return name;
@@ -31,7 +34,7 @@ public class Student {
         this.age = age;
     }
 
-    Student(String name, String rollNumber, int age, String university){
+    public Student(String name, String rollNumber, int age, String university){
             this.name = name;
             this.rollNumber = rollNumber;
             this.age = age;
@@ -47,4 +50,11 @@ public class Student {
         }
 
 
+    public int getId() {
+        return 0;
+    }
+
+    public Comparable<Object> getCity() {
+        return null;
+    }
 }

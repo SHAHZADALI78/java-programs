@@ -4,6 +4,9 @@ public class Employee {
     private int employeeFirstNumber;
     private float salaryFirst;
 
+    public Employee() {
+    }
+
     public void addMember() {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter Employee Number: ");
@@ -32,5 +35,21 @@ public class Employee {
             System.out.println("Employee " + (i + 1) + ":");
             employee[i].show();
         }
+    }
+
+    public int getId() {
+        return 0;
+    }
+
+    public Comparable<Object> getName() {
+        return null;
+    }
+
+    public Comparable<Object> getCity() {
+        return null;
+    }
+
+    public int getSalary() {
+        return 0;
     }
 }
