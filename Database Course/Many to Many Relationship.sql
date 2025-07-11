@@ -67,7 +67,7 @@ insert into students values (001, 'Adil'), (002, 'Partab');
 insert into courses values (101, 'database systems'), (102, 'OOP');
 insert into student_courses values (1, 101, '2025-06-20');
 
-select s.student_name, c.course_name, sc.enrollment_date
+select s.student_name, c.course_name, sc.enrollment_datedepartment
 from students s
 Inner join student_courses sc on s.student_id = sc.student_id
 Inner join courses c on sc.course_id = c.course_id;
