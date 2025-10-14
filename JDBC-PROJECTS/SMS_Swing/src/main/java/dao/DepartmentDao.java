@@ -5,13 +5,13 @@
 package dao;
 
 import java.util.List;
-import model.Department;
+import model.Departments;
 
 /**
  *
  * @author HP
  */
 public interface DepartmentDao {
-    List<Department> getAllDepartments();
+    List<Departments> getAlldepartments();
     
 }

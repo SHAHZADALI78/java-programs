@@ -9,19 +9,27 @@ package model;
  * @author HP
  */
 public class Student {
+    private int studentId;
     private String Name;
     private String rollNumber;
     private int Age;
     private String course;
      private String dept;
 
-    public Student(String Name, String rollNumber, int Age, String course, String dept){
+    public Student(int studentId,String Name, String rollNumber, int Age, String course, String dept){
+        this.studentId = studentId;
         this.Name = Name;
         this.rollNumber = rollNumber;
         this.Age = Age;
         this.course = course;
         this.dept = dept;
 
+    }
+    public void setstudentId(int studentId) {
+        this.studentId = studentId;
+    }
+        public int getstudentId() {
+        return studentId;
     }
 
     public String getName() {
@@ -62,5 +70,4 @@ public class Student {
     public void setDept(String dept) {
         this.dept = dept;
     }
-
 }

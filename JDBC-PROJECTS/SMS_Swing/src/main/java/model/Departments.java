@@ -8,11 +8,11 @@ package model;
  *
  * @author HP
  */
-public class Department {
+public class Departments {
      private String name;
      private int id;
 
-    public Department(String name, int id) {
+    public Departments(String name, int id) {
         this.name = name;
         this.id = id;
     }

@@ -13,9 +13,9 @@ import model.Student;
  */
 public interface StudentDao {
     void addStudent(Student student);
-    void deleteStudentByRollNumber(String rollNumber);
-    void updateStudent(String rollNumber, Student updatedStudent);
+    int deleteStudentBystudentId(int studentId);
     List<Student> getAllStudents();
+    public int updateStudent(Student student);
 
     
 }

@@ -40,52 +40,44 @@ public void addStudent(Student student) {
         e.printStackTrace();
     }
 }
-
-
-    @Override
-    public void deleteStudentByRollNumber(String rollNumber) {
-        Connection connection = DatabaseConnection.getDbConnection();
-        try {
-            String query = "Delete From Students Where roll_Number = '"+rollNumber+"' ";
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(query);
-        } catch (SQLException e) {
-        }
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-public void updateStudent(String rollNumber, Student updatedStudent) {
-    Connection connection = DatabaseConnection.getDbConnection();
-    try {
-        String query = "Update students Set name = '" + updatedStudent.getName() +
-                       "', roll_Number = '" + updatedStudent.getRollNumber() +
-                       "', age = " + updatedStudent.getAge() +
-                       ", course = '" + updatedStudent.getCourse() +
-                       "', department = '" + updatedStudent.getDept() +
-                       "' where roll_Number = '" + rollNumber + "'";
-        Statement statement = connection.createStatement();
-        statement.executeUpdate(query);
+@Override
+    public int updateStudent(Student student) {
+        int rowsUpdated = 0;
+    String sql = "Update students Set name=?, roll_Number=?, age=?, course=?, department=? Where studentId=?";
+    
+    try (Connection conn = DatabaseConnection.getDbConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, student.getName());
+        pstmt.setString(2, student.getRollNumber());
+        pstmt.setInt(3, student.getAge());
+        pstmt.setString(4, student.getCourse());
+        pstmt.setString(5, student.getDept());
+        pstmt.setInt(6, student.getstudentId());
+        
+        rowsUpdated = pstmt.executeUpdate();
+        
     } catch (SQLException e) {
-        e.printStackTrace(); // For debugging
+        e.printStackTrace();
     }
-}
+    return rowsUpdated;
+    }
 
 
     @Override
-    public List<Student> getAllStudents() {
+   public List<Student> getAllStudents() {
     List<Student> students = new ArrayList<>();
     Connection connection = DatabaseConnection.getDbConnection();
     try {
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("Select * From Students");
+        ResultSet rs = statement.executeQuery("SELECT * FROM Students");
         while (rs.next()) {
             Student student = new Student(
+                rs.getInt("studentId"),  // ID ka column name
                 rs.getString("name"),
                 rs.getString("roll_Number"),
                 rs.getInt("age"),
                 rs.getString("course"),
-                rs.getString("Department")
+                rs.getString("department")
             );
             students.add(student);
         }
@@ -94,4 +86,21 @@ public void updateStudent(String rollNumber, Student updatedStudent) {
     }
     return students; // List return karo
 }
+
+    @Override
+    public int deleteStudentBystudentId(int studentId) {
+            int rowsDeleted = 0;
+    String sql = "DELETE FROM students WHERE studentId = ?"; // column ka naam apni table ke mutabiq check kar lo
+
+    try (Connection conn = DatabaseConnection.getDbConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+        pstmt.setInt(1, studentId);
+        rowsDeleted = pstmt.executeUpdate(); // kitni rows delete hui uska result milega
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return rowsDeleted;
+    }
 }
